@@ -3,18 +3,29 @@ import MovieList from './MovieList';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    //this.divStyle.bind(this);
+  }
+
+
+  // divStyle() {
+  //   backgrounColor: '#F5F5F5'
+  // }
+
   render() {
     return (
-      <div>
-        Starter App component - hello there
-        <MovieList movies={[
-          { title: 'Mean Girls' },
-          { title: 'Hackers' },
-          { title: 'The Grey' },
-          { title: 'Sunshine' },
-          { title: 'Ex Machina' },
-        ]} />
-      </div>
+      <div style={{ borderStyle: 'solid' }}>
+        < MovieList movies={
+          [
+            { title: 'Mean Girls' },
+            { title: 'Hackers' },
+            { title: 'The Grey' },
+            { title: 'Sunshine' },
+            { title: 'Ex Machina' },
+          ]} />
+      </div >
     )
   }
 }

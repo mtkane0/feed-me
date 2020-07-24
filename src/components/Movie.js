@@ -2,9 +2,9 @@ import React from 'react';
 
 
 let Movie = (props) => {
-  console.log('moive props', props)
+  console.log('movie props', props)
   return (
-    <div>{props.title}</div>
+    <div style={{ padding: '20px', borderStyle: 'solid' }}>{props.title}</div>
   )
 }
 
