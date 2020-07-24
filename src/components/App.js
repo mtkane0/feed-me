@@ -5,18 +5,17 @@ import MovieList from './MovieList';
 class App extends React.Component {
   constructor(props) {
     super(props)
-
-    //this.divStyle.bind(this);
   }
 
-
-  // divStyle() {
-  //   backgrounColor: '#F5F5F5'
-  // }
-
   render() {
+
+    let style = {
+      borderStyle: 'solid',
+      width: '75%'
+    };
+
     return (
-      <div style={{ borderStyle: 'solid' }}>
+      <div style={style}>
         < MovieList movies={
           [
             { title: 'Mean Girls' },
