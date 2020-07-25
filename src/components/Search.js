@@ -1,5 +1,6 @@
 import React from 'react';
-import MovieList from './MovieList';
+import Movie from './Movie';
+import movies from '../index.js';
 
 class Search extends React.Component {
   constructor(props) {
@@ -18,28 +19,27 @@ class Search extends React.Component {
     this.setState({
       textEntered: e.target.value
     })
-
   }
 
   handleOnGo(e) {
     console.log('user entered', this.state.textEntered);
   }
 
-
   render() {
 
     let divStyle = {
-      padding: '30px',
+      padding: '20px',
       textAlign: 'center',
     };
 
     return (
-      <div style={divStyle}>
-        <input onChange={this.handleOnEnterSearch} type="text" name="search" placeholder="Search..." />
-        <input onClick={this.handleOnGo} type="submit" value="Go!" />
+      <div>
+        <div style={divStyle}>
+          <input onChange={this.handleOnEnterSearch} type="text" name="search" placeholder="Search..." />
+          <input onClick={this.handleOnGo} type="submit" value="Go!" />
+        </div>
       </div>
     )
-
   }
 }
 

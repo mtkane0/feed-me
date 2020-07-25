@@ -13,8 +13,6 @@ class Movie extends React.Component {
     this.handleOnMouseOver = this.handleOnMouseOver.bind(this);
   }
 
-
-
   handleOnClick(e) {
     console.log('clicked', this.props.title);
   }
@@ -36,7 +34,11 @@ class Movie extends React.Component {
     };
 
     return (
-      <div style={style} onClick={this.handleOnClick} onMouseEnter={this.handleOnMouseOver} onMouseLeave={this.handleOnMouseOver}>{this.props.title}</div>
+      <div style={style} onClick={this.handleOnClick}
+        onMouseEnter={this.handleOnMouseOver}
+        onMouseLeave={this.handleOnMouseOver}>
+        {this.props.title}
+      </div>
     )
   }
 }
