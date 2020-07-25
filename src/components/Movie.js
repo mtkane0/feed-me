@@ -18,8 +18,6 @@ class Movie extends React.Component {
   }
 
   handleOnMouseOver(e) {
-    // console.log('hovering...', this.props.title);
-    // console.log('state.hover: ', this.state.hover);
     this.setState({
       hover: !this.state.hover
     })

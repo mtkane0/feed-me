@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './MovieList';
 import App from './App';
+let movies = require('./data/movies');
 
 class Search extends React.Component {
   constructor(props) {
@@ -8,13 +9,8 @@ class Search extends React.Component {
 
     this.state = {
       textEntered: '',
-      movies: [
-        { title: 'Mean Girls' },
-        { title: 'Hackers' },
-        { title: 'The Grey' },
-        { title: 'Sunshine' },
-        { title: 'Ex Machina' },
-      ]
+      movies: this.props.movies,
+      placeholder: 'Search...'
     }
 
     this.handleTextEntered = this.handleTextEntered.bind(this);
@@ -26,11 +22,9 @@ class Search extends React.Component {
       textEntered: e.target.value
     });
     this.handleMovieSearch(this.state.textEntered);
-    // console.log('movies:', this.state.movies);
   }
 
   handleMovieSearch(text) {
-    console.log('RUNNING HANDLE ON GO')
     this.setState({
       movies: this.state.movies.filter((movie) => {
         console.log('text', text, movie.title.includes(text));
@@ -39,20 +33,34 @@ class Search extends React.Component {
     })
   }
 
+  handleRefresh(e) {
+    console.log('handleRefresh activated')
+    this.setState({
+      movies: this.props.movies,
+      textEntered: '',
+      placeholder: 'Search...'
+    })
+
+  }
+
   render() {
-    console.log('entered search bar', this.state.textEntered);
 
     let divStyle = {
       padding: '20px',
       textAlign: 'center',
     };
 
-    let sorry = <div style={divStyle}><p>Sorry, no matches</p></div>;
+
+
+
     return (
       <div>
         <div style={divStyle}>
-          <input onChange={this.handleTextEntered} type="text" name="search" placeholder="Search..." />
-          <input type="submit" value="Go!" />
+          <div>
+            <input onChange={this.handleTextEntered} value={this.state.textEntered} type="text" name="search" placeholder={this.state.placeholder} />
+            <input type="submit" value="Refresh" onClick={this.handleRefresh.bind(this)} />
+            {/* <Refresh isText={} handleRefresh={handleRefresh} /> */}
+          </div>
         </div>
         <div>
           {
@@ -60,7 +68,9 @@ class Search extends React.Component {
               ?
               <MovieList movies={this.state.movies} />
               :
-              sorry
+              <div style={divStyle}>
+                <p>Sorry, no matches</p>
+              </div>
           }
         </div>
       </div>

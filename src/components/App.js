@@ -23,8 +23,6 @@ class App extends React.Component {
 
     };
 
-    console.log('this.props.movies in app', this.props.movies)
-
     return (
       <div style={appStyle}>
         <div style={{ backgroundColor: '#D3D3D3', borderStyle: 'solid' }}>
@@ -32,7 +30,7 @@ class App extends React.Component {
         </div>
         <div style={movieListStyle}>
           <div>
-            <Search />
+            <Search movies={this.props.movies} />
           </div>
         </div>
       </div>
