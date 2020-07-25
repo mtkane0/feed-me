@@ -27,7 +27,9 @@ class App extends React.Component {
       addMovie: ''
     })
     console.log('this.props', this.props)
-    this.props.movies.push({ title: movie })
+    if (movie) {
+      this.props.movies.push({ title: movie })
+    }
   }
 
   render() {
@@ -37,8 +39,9 @@ class App extends React.Component {
       width: '75%'
     };
 
-    let movieListStyle = {
-
+    let addMovieStyle = {
+      textAlign: 'center',
+      padding: '10px'
     };
 
     return (
@@ -46,10 +49,10 @@ class App extends React.Component {
         <div style={{ backgroundColor: '#D3D3D3', borderStyle: 'solid' }}>
           <h2>MovieList</h2>
         </div>
-        <div style={movieListStyle}>
-          <div>
+        <div>
+          <div style={addMovieStyle}>
             <input type="text" name="addMovie" onChange={this.handleText} value={this.state.addMovie} />
-            <input type="button" value="Add" onClick={this.handleAddMovie} />
+            <input type="button" value="Add" onClick={this.handleAddMovie} style={{ backgroundColor: 'green', color: 'white' }} />
           </div>
           <div>
             <Search movies={this.props.movies} />
