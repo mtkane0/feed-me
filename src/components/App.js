@@ -8,13 +8,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      movies: [
-        { title: 'Mean Girls' },
-        { title: 'Hackers' },
-        { title: 'The Grey' },
-        { title: 'Sunshine' },
-        { title: 'Ex Machina' },
-      ]
+
     }
   }
 
@@ -29,6 +23,8 @@ class App extends React.Component {
 
     };
 
+    console.log('this.props.movies in app', this.props.movies)
+
     return (
       <div style={appStyle}>
         <div style={{ backgroundColor: '#D3D3D3', borderStyle: 'solid' }}>
@@ -37,9 +33,6 @@ class App extends React.Component {
         <div style={movieListStyle}>
           <div>
             <Search />
-          </div>
-          <div>
-            <MovieList movies={this.state.movies} />
           </div>
         </div>
       </div>
