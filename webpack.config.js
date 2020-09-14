@@ -9,7 +9,7 @@ module.exports = {
           loader: "babel-loader"
         }
       },
-    {
+      {
         // For pure CSS (without CSS modules)
         test: /\.css$/i,
         exclude: /\.module\.css$/i,
@@ -18,7 +18,7 @@ module.exports = {
     ]
   },
   output: {
-        filename: 'bundle.js',
-        path: __dirname + '/dist'
-      }
+    filename: 'bundle.js',
+    path: __dirname + '/public'
+  }
 };
