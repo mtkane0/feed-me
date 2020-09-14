@@ -1,6 +1,9 @@
 import React from 'react';
-import MovieList from './MovieList';
-import Search from './Search';
+import Title from './Title.jsx';
+import SiteInfo from './SiteInfo.jsx';
+import ZipForm from './ZipForm.jsx';
+import Grid from '@material-ui/core/Grid';
+
 
 
 class App extends React.Component {
@@ -8,56 +11,63 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      addMovie: ''
+
     }
-    this.handleAddMovie = this.handleAddMovie.bind(this);
-    this.handleText = this.handleText.bind(this);
+
   }
 
-  handleText(e) {
-    this.setState({
-      addMovie: e.target.value
-    })
-  }
 
-  handleAddMovie(e) {
-    //console.log('Add ', movieTitle);
-    let movie = this.state.addMovie;
-    this.setState({
-      addMovie: ''
-    })
-    console.log('this.props', this.props)
-    if (movie) {
-      this.props.movies.push({ title: movie })
-    }
-  }
 
   render() {
+    const appContainer = {
+      height: '100vh',
+      // border: '20px solid red',
+    }
 
-    let appStyle = {
-      borderStyle: 'solid',
-      width: '75%'
-    };
+    const innerContainers = {
+      // border: '2px solid red',
+      // padding: '20px',
+    }
 
-    let addMovieStyle = {
-      textAlign: 'center',
-      padding: '10px'
-    };
+    const appStyle = {
+      // background: `url(https://images.unsplash.com/photo-1460306855393-0410f61241c7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80) no-repeat`,
+      // backgroundSize: 'cover',
+      // opacity: '0.3',
+    }
+
 
     return (
-      <div style={appStyle}>
-        <div style={{ backgroundColor: '#D3D3D3', borderStyle: 'solid' }}>
-          <h2>MovieList</h2>
+      <div>
+        <Title />
+        <div style={appStyle}>
         </div>
-        <div>
-          <div style={addMovieStyle}>
-            <input type="text" name="addMovie" onChange={this.handleText} value={this.state.addMovie} />
-            <input type="button" value="Add" onClick={this.handleAddMovie} style={{ backgroundColor: 'green', color: 'white' }} />
-          </div>
-          <div>
-            <Search movies={this.props.movies} />
-          </div>
-        </div>
+        <Grid container style={appContainer}
+          direction="row"
+          justify="center"
+          alignItems="center"
+        >
+          <Grid item container style={innerContainers}
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <SiteInfo />
+            </Grid>
+            <Grid item>
+              <ZipForm />
+            </Grid>
+          </Grid>
+          <Grid item container style={innerContainers}
+            direction="column"
+            justify="center"
+            alignItems="center"
+          >
+            {/* Cards will appear */}
+          </Grid>
+          <Grid item style={innerContainers}></Grid>
+        </Grid>
+
       </div>
     )
   }
