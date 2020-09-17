@@ -17,7 +17,7 @@ const Title = () => {
     <AppBar style={headerStyles}>
       <Toolbar>
         <FastfoodIcon edge="start" fontSize="large" />
-        <Typography style={headerTextStyles} variant="h3">FeedMe</Typography>
+        <Typography style={headerTextStyles} variant="h2">FeedMe</Typography>
       </Toolbar>
     </AppBar>
   )
