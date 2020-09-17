@@ -66,8 +66,8 @@ class App extends React.Component {
 
   handleSelect() {
     let address = this.state.currentPlace.address;
-    let urlEscapedAddress = address.replace(' ', '+');
-    urlEscapedAddress = urlEscapedAddress.replace(',', '%2C');
+    let urlEscapedAddress = address.replaceAll(', ', '%2C');
+    urlEscapedAddress = urlEscapedAddress.replaceAll(' ', '+');
     alert(`Redirecting to ${this.state.currentPlace.name}!`);
     window.location.href = `https://www.google.com/maps/dir/?api=1&destination=${urlEscapedAddress}&`;
     return null;
