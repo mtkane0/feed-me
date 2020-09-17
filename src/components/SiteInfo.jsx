@@ -3,15 +3,19 @@ import Typography from '@material-ui/core/Typography';
 
 const SiteInfo = () => {
   const infoStyle = {
-    padding: '10%',
+    padding: '5%',
     fontFamily: '-apple-system',
   }
   return (
-    <div>
-      <Typography style={infoStyle}
+    <div style={infoStyle}>
+      <Typography
         align="center"
         variant="h6"
-      >Hungry? Enter your zip code and we will find places near you.</Typography>
+      >Hungry and can't decide what to eat?</Typography>
+      <Typography
+        align="center"
+        variant="h6"
+      >Enter your zip code and we will find places near you.</Typography>
     </div>
   )
 };
