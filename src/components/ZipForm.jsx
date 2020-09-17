@@ -37,7 +37,7 @@ class ZipForm extends React.Component {
     return (
       <div>
         <form>
-          <Box style={{ width: '40vw' }}>
+          <Box style={{ width: '30vw' }}>
             <TextField style={searchStyle}
               placeholder="Ex. 94043"
               label="Zip Code"
