@@ -15,6 +15,7 @@ module.exports = {
         exclude: /\.module\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      { test: /\.(gif|jpg|png)$/, use: 'file-loader' }
     ]
   },
   output: {
