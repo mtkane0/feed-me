@@ -31,10 +31,23 @@ app.get('/searchBy/:zipcode', (req, res) => {
           location: latlong,
           keyword: 'restaurant',
           radius: 10000,
+          opennow: true,
         }
       })
         .then((places) => {
-          res.send(places.data);
+          // console.log(places.data);
+          let newPlaces = places.data.results.map((place) => {
+            return {
+              place_id: place.place_id,
+              name: place.name,
+              rating: place.rating,
+              total_ratings: place.user_ratings_total,
+              price_level: place.price_level,
+              address: place.vicinity,
+              photo_ref: place.photos[0].photo_reference
+            }
+          })
+          res.send(newPlaces);
         })
         .catch((err) => {
           res.status(403).send(err);
@@ -45,6 +58,25 @@ app.get('/searchBy/:zipcode', (req, res) => {
       res.status(403).send('Invalid Request');
     })
 });
+
+app.get('/getPlaceImage/:photo_ref', (req, res) => {
+  const photoRef = req.params.photo_ref;
+  axios({
+    method: 'get',
+    url: 'https://maps.googleapis.com/maps/api/place/photo',
+    params: {
+      key: KEY.GMP_API_KEY,
+      photoreference: photoRef,
+      maxheight: 500
+    }
+  })
+    .then((photo) => {
+      res.send(photo.request._redirectable._currentUrl);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
