@@ -3,27 +3,20 @@ import Rating from '@material-ui/lab/Rating';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 const Price = (props) => {
-  const customIcons = {
-    1: {
-      icon: <AttachMoneyIcon />,
-      label: 'Cheap',
-    },
-    2: {
-      icon: <AttachMoneyIcon />,
-      label: 'Average',
-    },
-    3: {
-      icon: <AttachMoneyIcon />,
-      label: 'Pricey',
-    },
-    4: {
-      icon: <AttachMoneyIcon />,
-      label: 'Expensive',
-    },
-  };
+
+  function IconContainer(props) {
+    const { value } = props;
+    let icons = [];
+    for (let i = 0; i < value; i++) {
+      icons.push(<AttachMoneyIcon key={i} style={{ color: 'green' }} />);
+    }
+    return <span>{icons}</span>;
+  }
 
   return (
-    <Rating />
+    <React.Fragment>
+      {IconContainer(props)}
+    </React.Fragment>
   )
 }
 
