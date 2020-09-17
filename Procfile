@@ -1,2 +1,2 @@
-web: npm run react-dev
-web: npm run start
+web: npm run build;
+web: npm run start;
