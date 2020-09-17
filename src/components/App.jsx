@@ -37,7 +37,6 @@ class App extends React.Component {
   }
 
   getLocation(zipcode) {
-    console.log('zipcode', zipcode)
     axios.get(`/searchBy/${zipcode}`)
       .then((places) => {
         this.setState({
