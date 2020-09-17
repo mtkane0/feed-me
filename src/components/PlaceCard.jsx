@@ -5,6 +5,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import loadingGif from '../images/cardLoading.gif';
 import Reviews from './Reviews.jsx';
+import Price from './Price.jsx';
 const axios = require('axios');
 
 
@@ -59,7 +60,12 @@ class PlaceCard extends React.Component {
       flexDirection: 'column',
       justifyContent: 'space-around',
       alignItems: 'center',
-      // background: 'red',
+    }
+
+    const reviewsStyles = {
+      position: 'relative',
+      paddingLeft: '10px',
+      top: '-3px',
     }
 
     return (
@@ -75,8 +81,14 @@ class PlaceCard extends React.Component {
                 />
                 <CardContent style={contentStyles}>
                   <Typography variant="h6">{this.props.place.name}</Typography>
-                  <Reviews>{this.props.place.rating} ({this.props.place.total_ratings})</Reviews>
-                  <Typography>{this.props.place.price_level || 'no pricing found'}</Typography>
+                  <span><Reviews value={this.props.place.rating} />
+                    <span style={reviewsStyles}>({this.props.place.total_ratings})</span>
+                  </span>
+                  {
+                    this.props.place.price_level
+                      ? <Price value={this.props.place.price_level} />
+                      : <Typography style={{ fontStyle: 'italic' }}>No pricing found</Typography>
+                  }
                   <Typography>{this.props.place.address}</Typography>
                 </CardContent>
               </Card>
