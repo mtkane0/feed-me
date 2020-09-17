@@ -3,7 +3,7 @@ const path = require('path');
 const axios = require('axios');
 const KEY = require('../config.js');
 const app = express();
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
 app.use(express.json());
 app.use(express.urlencoded());
