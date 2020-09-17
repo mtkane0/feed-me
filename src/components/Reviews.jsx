@@ -5,8 +5,7 @@ import Rating from '@material-ui/lab/Rating';
 
 
 const Reviews = (props) => {
-  const { value } = props;
-  console.log('value', value)
+  const { value, reviews } = props;
   return (
     <Rating
       readOnly
@@ -19,3 +18,5 @@ const Reviews = (props) => {
 };
 
 export default Reviews;
+
+// <span style={reviewsStyles}>{`(${reviews})`}</span>
