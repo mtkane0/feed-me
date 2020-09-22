@@ -1,6 +1,6 @@
 # FeedMe
 
-[An app](http://feed-me-2.herokuapp.com/) that simplifies finding a good place to eat near you. This easy-to-use UX will provide you with details about a restuarant that matter, one at a time. When you select the right one for you the app will take you immediately to directions so you can get to eating sooner.
+[An app](http://feed-me-2.herokuapp.com/) that simplifies finding a good place to eat near you. This easy-to-use UX will provide you with details about a restaurant that matter, one at a time. When you select the right one for you the app will take you immediately to directions so you can get to eating sooner.
 
 ## Demo
 
