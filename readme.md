@@ -8,6 +8,7 @@ Enter zip code to find open restaurants near you:
 
 ![gif of demo1](https://github.com/mtkane0/feed-me/blob/master/public/feedme1.gif)
 
+
 Once a place is selected you will be redirected to directions:
 
 ![gif of demo2](https://github.com/mtkane0/feed-me/blob/master/public/feedme2.gif)
@@ -15,9 +16,11 @@ Once a place is selected you will be redirected to directions:
 
 ### Get Started
 
-> npm install
-> npm run build
-> npm run start
+```
+  npm install
+  npm run build
+  npm run start
+```
 
 ### Tech Stack
 * React
